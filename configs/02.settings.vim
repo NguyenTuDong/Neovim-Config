@@ -21,4 +21,12 @@ set nobackup
 set noswapfile
 " }}} UI Config
 
-
+" system clipboard
+if has("clipboard")
+  nnoremap <leader>p "+p
+  vnoremap <leader>p "+p
+  nnoremap <leader>P "+P
+  vnoremap <leader>P "+P
+  vnoremap <leader>y "+y
+  nnoremap <leader>Y "+Y
+endif

@@ -3,7 +3,9 @@ call plug#begin("~/.vim/plugged")
   Plug 'dracula/vim'
   Plug 'mhartington/oceanic-next' 
   Plug 'scrooloose/nerdtree'
+  Plug 'Xuyuanp/nerdtree-git-plugin'
   Plug 'ryanoasis/vim-devicons'
+  Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
   Plug 'junegunn/fzf.vim'
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -15,5 +17,7 @@ call plug#begin("~/.vim/plugged")
   Plug 'vim-airline/vim-airline-themes'
   Plug 'tpope/vim-fugitive'
   Plug 'scrooloose/nerdcommenter'
+  Plug 'terryma/vim-multiple-cursors'
+  Plug 'Xuyuanp/nerdtree-git-plugin'
 call plug#end()
 

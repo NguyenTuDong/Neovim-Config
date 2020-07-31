@@ -1,4 +1,4 @@
-nnoremap <c-t> :call OpenFloatTerm()<CR>
+nnoremap <c-f> :call OpenFloatTerm()<CR>
 function! OpenFloatTerm() 
 	let height = float2nr((&lines - 2) / 1.5) 
 	let row = float2nr((&lines - height) / 2) 
