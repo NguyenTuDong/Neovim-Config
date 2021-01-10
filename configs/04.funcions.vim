@@ -34,3 +34,22 @@ nnoremap <silent> <C-h> :call WinMove('h')<CR>
 nnoremap <silent> <C-j> :call WinMove('j')<CR>
 nnoremap <silent> <C-k> :call WinMove('k')<CR>
 nnoremap <silent> <C-l> :call WinMove('l')<CR>
+
+let g:term_buf = 0
+function! Term_toggle()
+  1wincmd w
+  if g:term_buf == bufnr("")
+    setlocal bufhidden=hide
+    close
+  else
+    topleft vnew
+    try
+      exec "buffer ".g:term_buf
+    catch
+      call termopen("powershell", {"detach": 0})
+      let g:term_buf = bufnr("")
+    endtry
+    startinsert!
+  endif
+endfunction
+nnoremap <f4> :call Term_toggle()<cr>
