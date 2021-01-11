@@ -1,12 +1,3 @@
-" Theme
-" ==============================
-if (has("termguicolors"))
- set termguicolors
-endif
-syntax enable
-" colorscheme OceanicNext 
-colorscheme molokai
-
 " NERDTree
 " ==============================
 let g:NERDTreeMinimalUI = 1
@@ -21,23 +12,6 @@ autocmd vimenter * NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 " Toggle
 nnoremap <silent> <C-b> :NERDTreeTabsToggle<CR>
-
-" Terminal
-" ==============================
-" open new split panes to right and below
-set splitright
-set splitbelow
-" turn terminal to normal mode with escape
-tnoremap <Esc> <C-\><C-n>
-tnoremap jk <C-\><C-n>
-" start terminal in insert mode
-au BufEnter * if &buftype == 'terminal' | :startinsert | endif
-" open terminal on ctrl+n
-function! OpenTerminal()
-  split term://powershell
-  resize 10
-endfunction
-nnoremap <c-t> :call OpenTerminal()<CR>
 
 
 " FZF
@@ -127,7 +101,7 @@ nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
 " Use K to show documentation in preview window.
-nnoremap <silent> K :call <SID>show_documentation()<CR>
+nnoremap <silent> gh :call <SID>show_documentation()<CR>
 
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
@@ -218,7 +192,7 @@ nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 " Airline
 " ==============================
 " let g:airline_theme='oceanicnext'
-let g:airline_theme = 'powerlineish'
+let g:airline_theme = 'material'
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
 endif
@@ -254,20 +228,31 @@ else
   let g:airline_symbols.linenr = ''
 endif
 
-"" Git
+" Git
 " ==============================
-noremap <space>ga :Gwrite<CR>
-noremap <space>gc :Gcommit<CR>
-noremap <space>gsh :Gpush<CR>
-noremap <space>gll :Gpull<CR>
-noremap <space>gs :Gstatus<CR>
-noremap <space>gb :Gblame<CR>
-noremap <space>gd :Gvdiff<CR>
-noremap <space>gr :Gremove<CR>
+noremap <leader>ga :Gwrite<CR>
+noremap <leader>gc :Gcommit<CR>
+noremap <leader>gsh :Gpush<CR>
+noremap <leader>gll :Gpull<CR>
+noremap <leader>gs :Gstatus<CR>
+noremap <leader>gb :Gblame<CR>
+noremap <leader>gd :Gvdiff<CR>
+noremap <leader>gr :Gremove<CR>
 
-if exists("*fugitive#statusline")
-  set statusline+=%{fugitive#statusline()}
-endif
+" GitGutter
+" ==============================
+nmap ]h <Plug>(GitGutterNextHunk)
+nmap [h <Plug>(GitGutterPrevHunk)
+nmap <Leader>hu <Plug>(GitGutterUndoHunk)
+nmap <Leader>hv <Plug>(GitGutterPreviewHunk)
+
+
+" IndentLine
+" ==============================
+let g:indentLine_enabled = 1
+let g:indentLine_concealcursor = 0
+let g:indentLine_char = '┆'
+let g:indentLine_faster = 1
 
 " Vim Multiple Cursors
 " ==============================
@@ -337,7 +322,7 @@ let g:javascript_enable_domhtmlcss = 1
 " vim-javascript
 augroup vimrc-javascript
   autocmd!
-  autocmd FileType javascript setl tabstop=4|setl shiftwidth=4|setl expandtab softtabstop=4
+  autocmd FileType javascript setl tabstop=2|setl shiftwidth=2|setl expandtab softtabstop=2
 augroup END
 
 

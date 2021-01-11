@@ -1,11 +1,12 @@
 call plug#begin("~/.vim/plugged")
   Plug 'altercation/vim-colors-solarized' 
-  Plug 'tomasr/molokai'
-"  Plug 'dracula/vim'
-  Plug 'mhartington/oceanic-next' 
+  Plug 'kaicataldo/material.vim'
+" Plug 'christianchiarulli/nvcode-color-schemes.vim'
+" Plug 'joshdick/onedark.vim'
+" Plug 'tomasr/molokai'
+" Plug 'dracula/vim'
   Plug 'scrooloose/nerdtree'
   Plug 'jistr/vim-nerdtree-tabs'
-  Plug 'Xuyuanp/nerdtree-git-plugin'
   Plug 'ryanoasis/vim-devicons'
   Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -19,8 +20,10 @@ call plug#begin("~/.vim/plugged")
   Plug 'vim-airline/vim-airline-themes'
   Plug 'tpope/vim-commentary'
   Plug 'tpope/vim-fugitive'
+  Plug 'airblade/vim-gitgutter'
   Plug 'terryma/vim-multiple-cursors'
-
+  Plug 'Yggdroot/indentLine'
+  Plug 'pangloss/vim-javascript'
 
   "*****************************************************************************
   "" Custom bundles

@@ -17,24 +17,6 @@ function! OpenFloatTerm()
 	autocmd TermClose * ++once :q! | call nvim_win_close(s:border_win, v:true) 
 endfunction
 
-function! WinMove(key)
-    let t:curwin = winnr()
-    exec "wincmd ".a:key
-    if (t:curwin == winnr())
-        if (match(a:key,'[jk]'))
-            wincmd v
-        else
-            wincmd s
-        endif
-        exec "wincmd ".a:key
-    endif
-endfunction
-
-nnoremap <silent> <C-h> :call WinMove('h')<CR>
-nnoremap <silent> <C-j> :call WinMove('j')<CR>
-nnoremap <silent> <C-k> :call WinMove('k')<CR>
-nnoremap <silent> <C-l> :call WinMove('l')<CR>
-
 let g:term_buf = 0
 function! Term_toggle()
   1wincmd w
@@ -53,3 +35,13 @@ function! Term_toggle()
   endif
 endfunction
 nnoremap <f4> :call Term_toggle()<cr>
+
+" start terminal in insert mode
+au BufEnter * if &buftype == 'terminal' | :startinsert | endif
+" open terminal on ctrl+n
+function! OpenTerminal()
+  split term://powershell
+
+endfunction
+nnoremap <c-t> :call OpenTerminal()<CR>
+

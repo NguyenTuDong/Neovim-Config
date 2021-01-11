@@ -1,6 +1,9 @@
 set guifont=DroidSansMono\ Nerd\ Font\ Mono
 set encoding=UTF-8
 
+" g Leader key
+let mapleader=" "
+
 " Spaces & Tabs {{{
 set tabstop=2       " number of visual spaces per TAB
 set softtabstop=2   " number of spaces in tab when editing
@@ -22,6 +25,10 @@ set showmatch                " highlight matching brace
 set laststatus=2             " window will always have a status line
 set nobackup
 set noswapfile
+set noshowmode
+set clipboard=unnamedplus
+set splitbelow                          " Horizontal splits will automatically be below
+set splitright                          " Vertical splits will automatically be to the right
 
 "" Searching
 set hlsearch
@@ -39,42 +46,14 @@ set titlestring=%F
 
 set statusline=%F%m%r%h%w%=(%{&ff}/%Y)\ (line\ %l\/%L,\ col\ %c)\
 " }}} UI Config
-
-" system clipboard
-if has("clipboard")
-  nnoremap <space>p "+p
-  vnoremap <space>p "+p
-  nnoremap <space>P "+P
-  vnoremap <space>P "+P
-  vnoremap <space>y "+y
-  nnoremap <space>Y "+Y
+"
+" Theme
+" ==============================
+if (has("termguicolors"))
+ set termguicolors
 endif
-
-" Run commands with semicolon
-nnoremap ; :
-nnoremap <space>w :w<CR>
-nnoremap <space>q :q<CR>
-nmap <C-s> :source %<CR>
-nnoremap J 5j
-nnoremap K 5k
-
-inoremap jk <esc>
-inoremap kj <esc>
-
-" Search mappings: These will make it so that going to the next one in a
-" search will center on the line it's found in.
-nnoremap n nzzzv
-nnoremap N Nzzzv
-
-"" Split
-noremap <Leader>h :<C-u>split<CR>
-noremap <Leader>v :<C-u>vsplit<CR>
-
-"" Tabs
-nnoremap <Tab> gt
-nnoremap <S-Tab> gT
-nnoremap <silent> <S-t> :tabnew<CR>
-
-"" Move visual block
-vnoremap J :m '>+1<CR>gv=gv
-vnoremap K :m '<-2<CR>gv=gv
+syntax enable
+" colorscheme OceanicNext 
+"
+let g:material_theme_style = 'ocean'
+colorscheme material
